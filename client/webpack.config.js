@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
 
 module.exports = () => {
   return {
@@ -9,7 +10,8 @@ module.exports = () => {
     // Entry point for files
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
+      editor: './src/js/editor.js'
     },
     // Output for our bundles
     output: {
@@ -23,12 +25,13 @@ module.exports = () => {
         title: 'JATE'
       }),
      
+      
       // Injects our custom service worker
-      new InjectManifest({
-        swSrc: './src-sw.js',
-        swDest: 'src-sw.js',
-      }),
-
+      // new InjectManifest({
+      //   swSrc: './src-sw.js',
+      //   swDest: 'src-sw.js',
+      // }),
+      new GenerateSW(),
       // Creates a manifest.json file.
       new WebpackPwaManifest({
         fingerprints: false,
