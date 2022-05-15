@@ -7,7 +7,7 @@
 
 ## Installation
    To run this source code you will have to have Node.js. You will use "npm i" to download the required packages from both the main folder and server folder. 
-   * Heroku: 
+   * Heroku: https://sleepy-oasis-69757.herokuapp.com
    * Repository: https://github.com/ChristopherPonzio/Text-Editor
 
 ## Usage
